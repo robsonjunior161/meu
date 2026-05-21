@@ -12,7 +12,7 @@
 
     body{
       margin:0;
-      min-height:200vh; /* 🔥 agora tem espaço pra rolar */
+      min-height:200vh;
 
       text-align:center;
       color:white;
@@ -28,7 +28,6 @@
       background-position:center;
     }
 
-    /* conteúdo central */
     .conteudo{
       position:relative;
       padding-top:100px;
@@ -119,18 +118,18 @@
     <h1>Meu primeiro site 😎</h1>
 
     <p class="mensagem">
-      SALVE ADRIAAAANAAAAAA, SE LOKO, AGORA O PAI CRIOU UM SITE, VAI TOMANDO KKKKKK
+      SALVE ADRIAAAANAAAAAA 🐷
       <br><br>
-      salve pepaaaaaa piiiiiggg🐷, MENOR QUANTÃO CRIOU UM SITE E COM MUSICA AINDA, SE LOKO, TA POTENTE DEMAIS 🐷
+      site com música, chuva e raio ⚡
     </p>
 
     <button onclick="tocarMusica()">Tocar música 🎵</button>
 
   </div>
 
-  <!-- 🎵 música -->
+  <!-- 🎵 MÚSICA (IMPORTANTE: arquivo precisa existir no GitHub) -->
   <audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
+    <source src="./musica.mp3" type="audio/mpeg">
   </audio>
 
   <!-- 🌧️ chuva -->
@@ -160,10 +159,14 @@
     audio.volume = 0.2;
 
     function tocarMusica(){
-      audio.play().catch(() => {});
+      audio.load();
+      audio.play().catch((err) => {
+        console.log(err);
+        alert("❌ Música não encontrada no GitHub. Verifica se 'musica.mp3' está no repositório.");
+      });
     }
 
-    // ⚡ relâmpago
+    // ⚡ raio
     const flash = document.getElementById("flash");
 
     function relampago(){
