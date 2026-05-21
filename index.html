@@ -49,7 +49,7 @@
 
     button{
       margin-top:20px;
-      padding:10px 20px;
+      padding:12px 25px;
       font-size:18px;
       border:none;
       border-radius:10px;
@@ -72,18 +72,19 @@
     vai tomando filhão 😎
   </p>
 
-  <!-- 🎵 ÁUDIO (SEM ANÚNCIO, COM VOLUME CONTROLADO) -->
+  <!-- 🎵 MÚSICA SEM ANÚNCIO -->
   <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🔘 BOTÃO PRA INICIAR -->
+  <!-- 🔘 BOTÃO -->
   <button onclick="tocarMusica()">Tocar música 🎵</button>
 
   <script>
     function tocarMusica(){
       let audio = document.getElementById("musica");
-      audio.volume = 0.5; // 🔊 50%
+
+      audio.volume = 0.2; // 🔊 20% (mais baixo e seguro)
       audio.play();
     }
   </script>
