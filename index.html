@@ -26,7 +26,6 @@
       font-family:Arial;
 
       background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455');
-
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -72,7 +71,7 @@
     vai tomando filhão 😎
   </p>
 
-  <!-- 🎵 MÚSICA SEM ANÚNCIO -->
+  <!-- 🎵 MÚSICA (coloque musica.mp3 na mesma pasta) -->
   <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
@@ -82,10 +81,18 @@
 
   <script>
     function tocarMusica(){
-      let audio = document.getElementById("musica");
+      const audio = document.getElementById("musica");
 
-      audio.volume = 0.2; // 🔊 20% (mais baixo e seguro)
-      audio.play();
+      audio.load();        // força carregar
+      audio.volume = 0.2;  // 🔊 20% (baixo)
+      
+      let playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          console.log("Clique necessário para liberar áudio");
+        });
+      }
     }
   </script>
 
