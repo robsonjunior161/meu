@@ -47,6 +47,15 @@
       text-shadow:0 0 10px black;
     }
 
+    button{
+      margin-top:20px;
+      padding:10px 20px;
+      font-size:18px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
   </style>
 
 </head>
@@ -63,21 +72,20 @@
     vai tomando filhão 😎
   </p>
 
-  <!-- 🎵 MÚSICA DE FUNDO (YouTube) -->
-  <iframe
-    width="0"
-    height="0"
-    src="https://www.youtube.com/embed/IfVqba_ey54?autoplay=1&loop=1&playlist=IfVqba_ey54&mute=1"
-    frameborder="0"
-    allow="autoplay">
-  </iframe>
+  <!-- 🎵 ÁUDIO (SEM ANÚNCIO, COM VOLUME CONTROLADO) -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- 🔘 BOTÃO PRA INICIAR -->
+  <button onclick="tocarMusica()">Tocar música 🎵</button>
 
   <script>
-    // clicar na tela ativa o som
-    document.body.addEventListener("click", function () {
-      let frame = document.querySelector("iframe");
-      frame.src = frame.src.replace("mute=1", "mute=0");
-    });
+    function tocarMusica(){
+      let audio = document.getElementById("musica");
+      audio.volume = 0.5; // 🔊 50%
+      audio.play();
+    }
   </script>
 
 </body>
