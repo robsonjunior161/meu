@@ -118,19 +118,23 @@
     <h1>Meu primeiro site 😎</h1>
 
     <p class="mensagem">
-      SALVE ADRIAAAANAAAAAA 🐷
-      <br><br>
-      site com música, chuva e raio ⚡
+      SALVE ADRIAAAANAAAAAA 🐷<br><br>
+      agora com música do YouTube + chuva + raio ⚡
     </p>
 
-    <button onclick="tocarMusica()">Tocar música 🎵</button>
+    <button onclick="ativarSom()">Ativar som 🎵</button>
 
   </div>
 
-  <!-- 🎵 MÚSICA (IMPORTANTE: arquivo precisa existir no GitHub) -->
-  <audio id="musica" loop>
-    <source src="./musica.mp3" type="audio/mpeg">
-  </audio>
+  <!-- 🎵 YOUTUBE (MÚSICA) -->
+  <iframe
+    id="yt"
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/IfVqba_ey54?autoplay=1&loop=1&playlist=IfVqba_ey54"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
 
   <!-- 🌧️ chuva -->
   <div class="rain" id="rain"></div>
@@ -154,18 +158,6 @@
       rain.appendChild(drop);
     }
 
-    // 🎵 música
-    const audio = document.getElementById("musica");
-    audio.volume = 0.2;
-
-    function tocarMusica(){
-      audio.load();
-      audio.play().catch((err) => {
-        console.log(err);
-        alert("❌ Música não encontrada no GitHub. Verifica se 'musica.mp3' está no repositório.");
-      });
-    }
-
     // ⚡ raio
     const flash = document.getElementById("flash");
 
@@ -179,6 +171,12 @@
         relampago();
       }
     }, 800);
+
+    // 🔊 tentar “liberar som”
+    function ativarSom(){
+      const iframe = document.getElementById("yt");
+      iframe.src = iframe.src; // força recarregar
+    }
 
   </script>
 
