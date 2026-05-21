@@ -11,6 +11,7 @@
 
   <style>
 
+    /* 🌌 FUNDO NEON ANIMADO */
     body{
       margin:0;
       height:100vh;
@@ -21,38 +22,73 @@
       flex-direction:column;
 
       text-align:center;
-
       color:white;
       font-family:Arial;
 
-      background-image:url('https://images.unsplash.com/photo-1519608487953-e999c86e7455');
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
+      background: linear-gradient(-45deg,
+        #0f0c29,
+        #302b63,
+        #24243e,
+        #00f2ff,
+        #ff00ff
+      );
+
+      background-size: 400% 400%;
+      animation: fundoNeon 10s ease infinite;
     }
 
+    @keyframes fundoNeon {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    /* ✨ TÍTULO NEON */
     h1{
       font-size:70px;
-      text-shadow:0 0 15px black;
+      text-shadow:
+        0 0 10px #00f2ff,
+        0 0 20px #ff00ff,
+        0 0 40px #00f2ff;
     }
 
+    /* 📦 CAIXA DE TEXTO */
     .mensagem{
       width:700px;
       font-size:32px;
       line-height:1.5;
-      background:rgba(0,0,0,0.5);
+      background:rgba(0,0,0,0.6);
       padding:20px;
       border-radius:20px;
-      text-shadow:0 0 10px black;
+      box-shadow: 0 0 20px #00f2ff;
     }
 
+    /* 🔘 BOTÃO NEON ANIMADO */
     button{
       margin-top:20px;
-      padding:12px 25px;
+      padding:15px 30px;
       font-size:18px;
+
       border:none;
-      border-radius:10px;
+      border-radius:12px;
       cursor:pointer;
+
+      color:white;
+      background:#111;
+
+      box-shadow:
+        0 0 10px #00f2ff,
+        0 0 20px #ff00ff;
+
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.1);
+      box-shadow:
+        0 0 20px #00f2ff,
+        0 0 40px #ff00ff,
+        0 0 60px #00f2ff;
     }
 
   </style>
@@ -71,28 +107,18 @@
     vai tomando filhão 😎
   </p>
 
-  <!-- 🎵 MÚSICA (coloque musica.mp3 na mesma pasta) -->
+  <!-- 🎵 MÚSICA -->
   <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🔘 BOTÃO -->
   <button onclick="tocarMusica()">Tocar música 🎵</button>
 
   <script>
     function tocarMusica(){
       const audio = document.getElementById("musica");
-
-      audio.load();        // força carregar
-      audio.volume = 0.2;  // 🔊 20% (baixo)
-      
-      let playPromise = audio.play();
-
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          console.log("Clique necessário para liberar áudio");
-        });
-      }
+      audio.volume = 0.2;
+      audio.play();
     }
   </script>
 
